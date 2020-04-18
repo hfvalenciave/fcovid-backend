@@ -9,7 +9,7 @@ import { Message } from '../../models/message.interface';
 @Injectable()
 export class MessageService {
     constructor(@InjectModel('Messages') private readonly messageModel: Model<any>,
-        private readonly mailerService: MailerService) {}
+        private readonly mailerService: MailerService) { }
 
     async findAll(): Promise<any[]> {
         const messages = await this.messageModel.find().exec();
@@ -43,24 +43,18 @@ export class MessageService {
     }
 
     private parseText(data: Data) {
-        return `
-            profession: ${data.profession}\n
-            comments: ${data.comments}\n
-            fullname: ${data.fullname}\n
-            email: ${data.email}\n
-            phone: ${data.phone}\n
-            timezone: ${data.timeZone}
-        `;
+        let message = '';
+        Object.keys(data).forEach(key => {
+            message += `${key}: ${data[key]}\n`
+        })
+        return message;
     }
 
     private parseHtml(data: Data) {
-        return `
-            profession: <b>${data.profession}</b><br>
-            comments: <b>${data.comments}</b><br>
-            fullname: <b>${data.fullname}</b><br>
-            email: <b>${data.email}</b><br>
-            phone: <b>${data.phone}</b><br>
-            timezone: <b>${data.timeZone}</b>
-        `;
+        let message = '';
+        Object.keys(data).forEach(key => {
+            message += `${key}: <b>${data[key]}</b><br>`
+        })
+        return message;
     }
 }

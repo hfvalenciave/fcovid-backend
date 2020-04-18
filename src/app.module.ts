@@ -20,7 +20,7 @@ import { ContactModule } from './modules/contact/contact.module';
             defaults: {
                 from: '"No Reply" <bernardo.pena.ramos@gmail.com>'
             },
-            preview: true,
+            preview: false,
             template: {
                 dir: process.cwd() + '/template',
                 adapter: new PugAdapter(),
