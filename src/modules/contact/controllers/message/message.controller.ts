@@ -4,7 +4,7 @@ import { Message } from './../../models/message.interface';
 import { MessageService } from './../../services/message/message.service';
 import { response } from 'express';
 
-@Controller('message')
+@Controller('messages')
 export class MessageController {
 
     constructor(private messageService: MessageService) { }
