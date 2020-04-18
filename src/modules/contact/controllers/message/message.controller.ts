@@ -22,7 +22,7 @@ export class MessageController {
     }
 
     @Post()
-    async create(@Response() response, @Body() message): Promise<Message> {
+    async create(@Response() response, @Body() message: any): Promise<Message> {
         const created = await this.messageService.create(message);
         return response.status(HttpStatus.OK).json(created);
     }

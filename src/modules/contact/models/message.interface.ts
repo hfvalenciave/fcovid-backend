@@ -1,8 +1,8 @@
-export class Message {
-    readonly _id: string;
-    readonly fullname: string;
-    readonly email: string;
-    readonly iAmA: string;
-    readonly interestedIn: string;
-    readonly helpWith: string;
+import { Document } from 'mongoose';
+
+import { Data } from './data.interface';
+
+export class Message extends Document {
+    readonly messageType: string;
+    readonly data: Data;
 }
