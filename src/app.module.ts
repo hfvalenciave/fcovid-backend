@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { MailerModule, PugAdapter } from '@nestjs-modules/mailer';
 
 import { ContactModule } from './modules/contact/contact.module';
@@ -13,12 +12,12 @@ import { ContactModule } from './modules/contact/contact.module';
                 port: 587,
                 secure: false,
                 auth: {
-                    user: 'bernardo.pena.ramos@gmail.com',
-                    pass: 'vvtrtbihjdwziugp'
+                    user: 'fcovid@hf.cx',
+                    pass: 'xdksxdexllqbrccu'
                 },
             },
             defaults: {
-                from: '"No Reply" <bernardo.pena.ramos@gmail.com>'
+                from: '"No Reply" <fcovid@hf.cx>'
             },
             preview: false,
             template: {
@@ -28,11 +27,6 @@ import { ContactModule } from './modules/contact/contact.module';
                     strict: true
                 }
             }
-        }),
-        MongooseModule.forRoot('mongodb://localhost/games', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false
         })
     ],
     controllers: [
